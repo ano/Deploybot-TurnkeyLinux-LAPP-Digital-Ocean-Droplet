@@ -35,12 +35,12 @@ Set up a Digital Ocean Droplet with Docker. Once the droplet has spun up, get yo
 Step 1: Connect to your Digital Ocean Account
 Step 2: Connect to a repository, on your first go you will need to connect up your Github Account
 Step 3: Create a Deployment
-```
+```bash
 docker pull turnkeylinux/lapp-14.1
 ```
 
 Spin Up a Turnkeylinux LAPP instance
-```
+```bash
 CID=$(docker run -i -t -d -p 80:80 -p 443:443 -p 12322:12322 -p 12321:12321 -p 12320:12320 -p 2222:22 -p 5432:5432 turnkeylinux/lapp-14.1)
 CIP=$(docker inspect -format='{{.NetworkSettings.IPAddress}}' $CID)
 docker logs $CID | grep "Random initial root password"
