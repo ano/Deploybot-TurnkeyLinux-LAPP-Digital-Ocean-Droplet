@@ -2,13 +2,16 @@
 Put this code in your deploybot instance
 #The short version
 Put the following commands in deploybots settings
+
 > Run commands after new version is uploaded
+
 ```
 docker kill $(docker ps -q)
 docker rm $(docker ps -a -q)
 ```
 
 > Run commands after new version becomes active
+
 ```
 docker pull turnkeylinux/lapp-14.1
 CID=$(docker run -i -t -d -p 80:80 -p 443:443 -p 12322:12322 -p 12321:12321 -p 12320:12320 -p 2222:22 -p 5432:5432 turnkeylinux/lapp-14.1)
